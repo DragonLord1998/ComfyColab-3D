@@ -164,4 +164,3 @@ def install_ultrashape_overlay() -> None:
         check=True,
     )
     validate_trellis_cache(Path.home() / ".ce", validate_ultrashape=True)
-

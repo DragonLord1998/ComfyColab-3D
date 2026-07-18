@@ -40,4 +40,3 @@ Preview3D/SaveGLB paths.
 required live gates and benchmarks are recorded as passed. It does not publish
 release assets. Existing `trellis2-cache-v1` URLs must remain available as the
 rollback source even after new cache generations move to this repository.
-

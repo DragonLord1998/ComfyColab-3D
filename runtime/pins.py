@@ -59,4 +59,3 @@ def expected_pixal3d_sources() -> dict[str, str]:
         "environment": PIXAL3D_ENVIRONMENT_REF,
         "comfyEnv": COMFY_ENV_VERSION,
     }
-

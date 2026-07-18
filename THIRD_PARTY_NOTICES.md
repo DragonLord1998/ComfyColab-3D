@@ -61,4 +61,3 @@ transitive CUDA, FlashAttention, and package licenses.
 
 CubePart is disabled until `accept_research_license` is explicitly enabled.
 This pack does not convert its research-only terms into a commercial license.
-

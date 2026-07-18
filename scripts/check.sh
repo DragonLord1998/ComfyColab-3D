@@ -13,4 +13,3 @@ PYTHONPATH="$ROOT" "$PYTHON_BIN" -m unittest discover -s tests -t . -v
 for path in workflows/*.json cache/*.json patches/*.json docs/*.json; do
   "$PYTHON_BIN" -m json.tool "$path" >/dev/null
 done
-
