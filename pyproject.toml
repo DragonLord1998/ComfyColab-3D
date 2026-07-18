@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comfycolab-3d"
+version = "0.1.0-dev.0"
+description = "ComfyColab mesh generation, refinement, rigging, and part-decomposition pack."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "ComfyColab contributors" },
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+  "numpy>=1.26",
+  "Pillow>=10",
+]
+
+[tool.setuptools]
+py-modules = []
