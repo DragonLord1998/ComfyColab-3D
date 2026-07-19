@@ -12,6 +12,27 @@ GPU release gates.
 - Pending: add the generic `comfycolab-environment-toml` installer contract
   required by Pixal3D.
 
+## 0.2.0-dev.0 - 2026-07-19
+
+### Added
+
+- Added the public `ComfyColabPixal3DMVAdvanced` workflow and VGGT-Omega
+  depth/confidence-guided multiview adapter.
+- Added pinned official VGGT-Omega source/model metadata plus a checksum-bound
+  public retrieval fallback.
+
+### Fixed
+
+- Updated Pixal3D/CubePart artifact handling and the Pixal3D isolated worker
+  environment.
+- Hardened SkinTokens GLB validation, retry behavior, Blender export, and
+  isolated worker metadata.
+
+### Validation
+
+- Recorded real Colab G4 evidence for Advanced Pixal3D MV and SkinTokens
+  auto-rig while keeping unrelated pending gates explicit.
+
 ## 0.1.0-dev.0 - 2026-07-18
 
 ### Added

@@ -15,6 +15,7 @@ PUBLIC_NODE_IDS = (
     "ComfyColabUltraShapeRefine",
     "ComfyColabPixal3DImageTo3D",
     "ComfyColabPixal3DMV",
+    "ComfyColabPixal3DMVAdvanced",
     "ComfyColabSkinTokensAutoRig",
     "ComfyColabCubePartSegment",
 )

@@ -42,6 +42,21 @@ Pixal3D is installed in an isolated worker environment. Review all project,
 model, package, access, and regional terms before commercial or hosted use.
 Pixal3DMV is an experimental ComfyColab adapter, not an official Pixal3D mode.
 
+The separate Advanced Pixal3DMV adapter optionally uses VGGT-Omega:
+
+- Official source: <https://github.com/facebookresearch/vggt-omega>
+- Pinned source revision: `39a0cb8af88554f15ddcb5354cd52bde588fa014`
+- Official model: <https://huggingface.co/facebook/VGGT-Omega>
+- Pinned model revision: `05654241adc2f218dfb089c373a011f8a7040576`
+- Public fallback mirror: <https://huggingface.co/1kaiser/vggt-omega-jax>
+- Pinned fallback revision: `a8c3a718e0cf78e9e4c6847229efea793d37f060`
+- Required checkpoint SHA-256: `c02da418b18bb01d0392598d3f6147366bcde1bb70fd08a5e3bf7925b0667934`
+
+The source uses the FAIR Noncommercial Research License v1. The official model
+is labeled CC BY-NC 4.0 and remains access-gated. ComfyColab does not redistribute VGGT-Ω source or weights. The fallback is only a retrieval path:
+its checkpoint must match the official byte size and SHA-256, and its
+availability is not a grant of rights or official access approval.
+
 ## SkinTokens / TokenRig
 
 - Source revision: `273b691d35989d71cd17ff2895fdc735097b92d1`

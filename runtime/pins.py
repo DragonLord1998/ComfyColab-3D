@@ -27,7 +27,19 @@ PIXAL3D_UTILS3D_WHEEL = (
     "20260430/utils3d-0.0.2-py3-none-any.whl"
 )
 PIXAL3D_NATTEN_PACKAGE = "natten==0.21.6+torch2110cu128"
-PIXAL3D_ENVIRONMENT_REF = "g4-linux64-py31213-torch2110-cu128-sm120-pixal3d-v1"
+PIXAL3D_NVDIFFRAST_REF = "253ac4fcea7de5f396371124af597e6cc957bfae"
+PIXAL3D_VGGT_OMEGA_SOURCE_REF = "39a0cb8af88554f15ddcb5354cd52bde588fa014"
+PIXAL3D_VGGT_OMEGA_MODEL_REF = "05654241adc2f218dfb089c373a011f8a7040576"
+PIXAL3D_VGGT_OMEGA_FALLBACK_MODEL_REF = "a8c3a718e0cf78e9e4c6847229efea793d37f060"
+PIXAL3D_VGGT_OMEGA_FALLBACK_CHECKPOINT_URL = (
+    "https://huggingface.co/1kaiser/vggt-omega-jax/resolve/"
+    f"{PIXAL3D_VGGT_OMEGA_FALLBACK_MODEL_REF}/"
+    "vggt_omega_1b_512.pt?download=true"
+)
+PIXAL3D_VGGT_OMEGA_CHECKPOINT_SHA256 = (
+    "c02da418b18bb01d0392598d3f6147366bcde1bb70fd08a5e3bf7925b0667934"
+)
+PIXAL3D_ENVIRONMENT_REF = "g4-linux64-py31213-torch2110-cu128-sm120-pixal3d-v3"
 SKINTOKENS_REF = "273b691d35989d71cd17ff2895fdc735097b92d1"
 SKINTOKENS_MODEL_REPO = "VAST-AI/SkinTokens"
 SKINTOKENS_MODEL_REF = "79736cad0fd84de384d5eede659b4ebd24effe33"
@@ -56,6 +68,14 @@ def expected_pixal3d_sources() -> dict[str, str]:
         "nafCheckpoint": PIXAL3D_NAF_CHECKPOINT_SHA256,
         "utils3d": PIXAL3D_UTILS3D_WHEEL,
         "natten": PIXAL3D_NATTEN_PACKAGE,
+        "nvdiffrast": PIXAL3D_NVDIFFRAST_REF,
+        "vggtOmega": PIXAL3D_VGGT_OMEGA_SOURCE_REF,
+        "vggtOmegaModel": PIXAL3D_VGGT_OMEGA_MODEL_REF,
+        "vggtOmegaFallbackModel": PIXAL3D_VGGT_OMEGA_FALLBACK_MODEL_REF,
+        "vggtOmegaFallbackCheckpointUrl": (
+            PIXAL3D_VGGT_OMEGA_FALLBACK_CHECKPOINT_URL
+        ),
+        "vggtOmegaCheckpointSha256": PIXAL3D_VGGT_OMEGA_CHECKPOINT_SHA256,
         "environment": PIXAL3D_ENVIRONMENT_REF,
         "comfyEnv": COMFY_ENV_VERSION,
     }

@@ -6,13 +6,13 @@ generation and refinement, multiview reconstruction, rigging, part
 decomposition, GLB contracts, isolated workers, cache profiles, patches,
 workflows, tests, and validation records.
 
-The initial extraction deliberately preserves the legacy ComfyUI target
-directory `ComfyColab-3D`, all seven public node IDs, their categories and
+The pack preserves the legacy ComfyUI target
+directory `ComfyColab-3D`, all eight public node IDs, their categories and
 schemas, and the existing workflow filenames.
 
 ## Development status
 
-The current version is `0.1.0-dev.0`. It is an extraction pre-release: the
+The current version is `0.2.0-dev.0`. It is a development pre-release: the
 pack boundary and local contracts are testable, but it is not a stable release
 claim and does not imply that every live GPU gate has passed.
 
@@ -23,6 +23,7 @@ claim and does not imply that every live GPU gate has passed.
 - `ComfyColabUltraShapeRefine`
 - `ComfyColabPixal3DImageTo3D`
 - `ComfyColabPixal3DMV`
+- `ComfyColabPixal3DMVAdvanced`
 - `ComfyColabSkinTokensAutoRig`
 - `ComfyColabCubePartSegment`
 
