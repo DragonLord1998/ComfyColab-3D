@@ -16,6 +16,7 @@ PUBLIC_NODE_IDS = {
     "ComfyColabUltraShapeRefine",
     "ComfyColabPixal3DImageTo3D",
     "ComfyColabPixal3DMV",
+    "ComfyColabPixal3DMVAdvanced",
     "ComfyColabSkinTokensAutoRig",
     "ComfyColabCubePartSegment",
 }
@@ -47,6 +48,9 @@ class PackContractTests(unittest.TestCase):
         source = (ROOT / "custom_nodes/ComfyColab-3D/nodes.py").read_text(encoding="utf-8")
         for node_id in PUBLIC_NODE_IDS:
             self.assertIn(f'"{node_id}"', source)
+        doctor_source = (ROOT / "runtime/doctor.py").read_text(encoding="utf-8")
+        for node_id in PUBLIC_NODE_IDS:
+            self.assertIn(f'"{node_id}"', doctor_source)
 
     def test_dependency_refs_are_immutable_and_destinations_are_unique(self) -> None:
         dependencies = self.manifest["dependencies"]
@@ -60,6 +64,24 @@ class PackContractTests(unittest.TestCase):
                 self.assertRegex(dependency["sha256"], r"^[0-9a-f]{64}$")
             if dependency["kind"] in {"huggingface", "artifact"}:
                 self.assertEqual(dependency["install_phase"], "lazy")
+
+    def test_worker_profiles_match_the_current_runtime_contracts(self) -> None:
+        profiles = {
+            environment["id"]: environment["profile"]
+            for environment in self.manifest["environments"]
+        }
+        self.assertEqual(
+            profiles["pixal3d-worker"],
+            "g4-linux64-py31213-torch2110-cu128-sm120-pixal3d-v3",
+        )
+        self.assertEqual(
+            profiles["skintokens-worker"],
+            "g4-linux64-py31115-torch270-cu128-bpy4222-skintokens-v2",
+        )
+        self.assertEqual(
+            profiles["cubepart-worker"],
+            "g4-linux64-py31213-cubepart-v2",
+        )
 
     def test_patch_files_match_declared_digests_and_source_refs(self) -> None:
         dependency_refs = {

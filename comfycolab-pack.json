@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "id": "3d",
-  "version": "0.1.0-dev.0",
+  "version": "0.2.0-dev.0",
   "display_name": "ComfyColab 3D",
   "compatibility": {
     "core_manifest_api": 1,
@@ -115,6 +115,15 @@
       "install_phase": "bootstrap"
     },
     {
+      "id": "vggt-omega-source",
+      "kind": "git",
+      "repository": "https://github.com/facebookresearch/vggt-omega.git",
+      "ref": "39a0cb8af88554f15ddcb5354cd52bde588fa014",
+      "destination": "sources/vggt-omega",
+      "scope": "pixal3d-environment",
+      "install_phase": "lazy"
+    },
+    {
       "id": "ultrashape-model",
       "kind": "huggingface",
       "repository": "infinith/UltraShape",
@@ -156,6 +165,24 @@
       "repository": "Ruicheng/moge-2-vitl",
       "ref": "39c4d5e957afe587e04eec59dc2bcc3be5ecd968",
       "destination": "models/3d/pixal3d-moge",
+      "scope": "isolated",
+      "install_phase": "lazy"
+    },
+    {
+      "id": "pixal3d-vggt-omega-model",
+      "kind": "huggingface",
+      "repository": "facebook/VGGT-Omega",
+      "ref": "05654241adc2f218dfb089c373a011f8a7040576",
+      "destination": "models/3d/pixal3d-vggt-omega",
+      "scope": "isolated",
+      "install_phase": "lazy"
+    },
+    {
+      "id": "pixal3d-vggt-omega-fallback-model",
+      "kind": "huggingface",
+      "repository": "1kaiser/vggt-omega-jax",
+      "ref": "a8c3a718e0cf78e9e4c6847229efea793d37f060",
+      "destination": "models/3d/pixal3d-vggt-omega-fallback",
       "scope": "isolated",
       "install_phase": "lazy"
     },
@@ -244,17 +271,17 @@
     },
     {
       "id": "pixal3d-worker",
-      "profile": "g4-linux64-py31213-torch2110-cu128-sm120-pixal3d-v1",
+      "profile": "g4-linux64-py31213-torch2110-cu128-sm120-pixal3d-v3",
       "scope": "isolated"
     },
     {
       "id": "skintokens-worker",
-      "profile": "g4-linux64-py311-torch270-cu128-skintokens-v1",
+      "profile": "g4-linux64-py31115-torch270-cu128-bpy4222-skintokens-v2",
       "scope": "isolated"
     },
     {
       "id": "cubepart-worker",
-      "profile": "g4-linux64-py31213-cubepart-v1",
+      "profile": "g4-linux64-py31213-cubepart-v2",
       "scope": "isolated",
       "license_gate": "accept_research_license"
     }
@@ -287,6 +314,7 @@
     "workflows/comfycolab_ultrashape_refine.json",
     "workflows/comfycolab_pixal3d_image_to_3d.json",
     "workflows/comfycolab_pixal3dmv_to_3d.json",
+    "workflows/comfycolab_pixal3dmv_advanced_to_3d.json",
     "workflows/comfycolab_skintokens_auto_rig.json",
     "workflows/comfycolab_cubepart_segment.json"
   ],
@@ -300,6 +328,7 @@
         "ComfyColabUltraShapeRefine",
         "ComfyColabPixal3DImageTo3D",
         "ComfyColabPixal3DMV",
+        "ComfyColabPixal3DMVAdvanced",
         "ComfyColabSkinTokensAutoRig",
         "ComfyColabCubePartSegment"
       ]
@@ -312,6 +341,7 @@
       "ComfyColabUltraShapeRefine",
       "ComfyColabPixal3DImageTo3D",
       "ComfyColabPixal3DMV",
+      "ComfyColabPixal3DMVAdvanced",
       "ComfyColabSkinTokensAutoRig",
       "ComfyColabCubePartSegment"
     ],

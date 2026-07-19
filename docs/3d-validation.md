@@ -7,7 +7,8 @@ validation owned by `ComfyColab-3DGS`.
 
 The pack-local check covers:
 
-- the seven preserved public node IDs and saved workflow filenames;
+- the eight preserved public node IDs and saved workflow filenames, including
+  `ComfyColabPixal3DMVAdvanced`;
 - native `FILE_3D_GLB` contracts and geometry-quality checks;
 - TRELLIS and UltraShape graph expansion;
 - Pixal3D, SkinTokens, CubePart, and UltraShape worker protocols;
@@ -29,10 +30,21 @@ The machine-readable state in `3d-validation.json` remains pending unless a
 real pinned Colab G4 run produces the required GLB evidence.
 
 Existing proof for the strict 1536 no-downgrade path and combined CUDA probes is
-retained. Model-specific gates that have not completed end to end remain
-pending, including TRELLIS 512/1024/1536, multiview, UltraShape, Pixal3D,
-SkinTokens, CubePart, full-workflow, cache-hit, cancellation, and native
-Preview3D/SaveGLB paths.
+retained. The Pixal3D four-view path, Advanced Pixal3D MV VGGT-Omega path, and
+SkinTokens auto-rig path also have real Colab G4 evidence recorded in
+`3d-validation.json`.
+
+The Advanced Pixal3D MV proof used run `g4-7aa0844849334f72` and produced a
+textured 1024 GLB with 143,940 faces and normalized alignment RMS
+`0.06550437211564838`. The SkinTokens proof used run
+`g4-2fe26f88b4b04666` and produced one skin, 20 joints, and 131,757 weighted
+vertices after the worker retry path.
+
+Gates that have not completed end to end remain pending, including TRELLIS
+512/1024/1536 and multiview, UltraShape, the remaining Pixal3D runtime cases,
+CubePart, full-workflow, cache-hit, cancellation, and native Preview3D/SaveGLB
+paths. A passed node-specific gate is not a claim that the combined cache is
+release-ready.
 
 ## Cache publication
 
