@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "comfycolab-3d"
-version = "0.2.0-dev.0"
+version = "0.3.0-dev.1"
 description = "ComfyColab mesh generation, refinement, rigging, and part-decomposition pack."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -14,11 +14,21 @@ authors = [
 ]
 dependencies = []
 
+[project.urls]
+Repository = "https://github.com/DragonLord1998/ComfyColab-3D"
+Documentation = "https://github.com/DragonLord1998/ComfyColab-3D#readme"
+"Bug Tracker" = "https://github.com/DragonLord1998/ComfyColab-3D/issues"
+
 [project.optional-dependencies]
 test = [
   "numpy>=1.26",
   "Pillow>=10",
 ]
 
+[tool.comfy]
+PublisherId = "dragonlord1998"
+DisplayName = "ComfyColab 3D"
+requires-comfyui = ">=0.28.0"
+
 [tool.setuptools]
-py-modules = []
+packages = []

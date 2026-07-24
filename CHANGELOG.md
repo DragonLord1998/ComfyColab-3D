@@ -6,7 +6,18 @@ GPU release gates.
 
 ## Unreleased
 
-- Pending: execute and publish the pinned Colab/G4 live-validation record.
+- Added a root ComfyUI V3 entrypoint, Manager metadata, node catalog, and
+  standalone installer for the pinned TRELLIS2/GeometryPack base runtime.
+- Added portable cache/model/output defaults that do not assume `/content`.
+- Added standalone discovery and lifecycle diagnostics for all eight public
+  node IDs.
+- Added the pinned TRELLIS upstream environment lifecycle step and a
+  checksum-bound current-ComfyUI dependency patch so isolated metadata scans
+  include `comfy-kitchen`.
+- Existing sibling dependencies must match their audited revisions before the
+  installer reports success.
+- Completed a live G4 TRELLIS image-to-3D run on stock ComfyUI 0.28.0,
+  producing a textured volumetric GLB with 43,372 vertices and 48,014 faces.
 - Pending: verify cache restoration and cold-install behavior through the
   modular ComfyColab core.
 - Pending: add the generic `comfycolab-environment-toml` installer contract

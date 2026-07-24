@@ -1,6 +1,8 @@
 __pycache__/
 *.py[cod]
 .DS_Store
+.standalone/
+.cache/
 .coverage
 .pytest_cache/
 dist/

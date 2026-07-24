@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import importlib.util
 import json
 import re
 import unittest
@@ -92,6 +93,19 @@ class PackContractTests(unittest.TestCase):
             path = ROOT / patch["path"]
             self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), patch["sha256"])
             self.assertEqual(patch["source_ref"], dependency_refs[patch["target"]])
+
+    def test_standalone_installer_patches_are_manifest_declared(self) -> None:
+        spec = importlib.util.spec_from_file_location(
+            "comfycolab_3d_standalone_installer", ROOT / "install.py"
+        )
+        installer = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(installer)
+        declared = {
+            Path(patch["path"]).name
+            for patch in self.manifest["patches"]
+        }
+        self.assertLessEqual(set(installer.TRELLIS_PATCHES), declared)
 
     def test_hooks_and_workflows_exist(self) -> None:
         for hook in self.manifest["hooks"].values():

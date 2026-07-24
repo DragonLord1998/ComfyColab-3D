@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "patch_id": "trellis2-current-comfy-runtime-v1",
+  "revision": "9b878516f2dc2fd873f4f6cceadba403dd12d83e",
+  "files": [
+    {
+      "path": "nodes/comfy-env.toml",
+      "before_sha256": "969d40a5154ba4dae4ff9734e0b12922fa608c242242bb4e8a9d43af0f75a674",
+      "after_sha256": "cb70e6a2a7ccc98ad29ea8111df9c3d9da96a2fa97ca3ddda5d8a8b9df11700a",
+      "replacements": [
+        {
+          "before_lines": [
+            "comfy-aimdo = \"*\"",
+            "comfy-sparse-attn = \"*\""
+          ],
+          "after_lines": [
+            "comfy-aimdo = \"*\"",
+            "comfy-kitchen = \"*\"",
+            "comfy-sparse-attn = \"*\""
+          ]
+        }
+      ]
+    }
+  ]
+}

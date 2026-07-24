@@ -87,7 +87,7 @@ def _io():
 
 def _cache_root() -> Path:
     root = os.environ.get("COMFYCOLAB_3D_CACHE")
-    return Path(root) if root else Path("/content/.comfycolab/cache/3d")
+    return Path(root) if root else Path(__file__).resolve().parents[2] / ".cache" / "comfycolab" / "3d"
 
 
 def _hidden_value(node_class: type, name: str):
@@ -177,7 +177,9 @@ def _require_upstream_nodes(node_ids: set[str]) -> None:
     if missing:
         raise RuntimeError(
             "ComfyColab 3D requires the pinned ComfyUI-TRELLIS2 node pack. "
-            f"Missing node IDs: {', '.join(missing)}. Restart with `comfycolab start --refresh`."
+            f"Missing node IDs: {', '.join(missing)}. Run this repository's "
+            "`install.py` and restart ComfyUI. Managed ComfyColab users can "
+            "instead run `comfycolab start --refresh`."
         )
 
 

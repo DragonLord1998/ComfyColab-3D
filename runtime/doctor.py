@@ -20,6 +20,10 @@ PUBLIC_NODE_IDS = (
     "ComfyColabCubePartSegment",
 )
 REQUIRED_PATHS = (
+    ROOT / "__init__.py",
+    ROOT / "install.py",
+    ROOT / "requirements.txt",
+    ROOT / "node_list.json",
     NODE_FILE,
     ROOT / "worker" / "ultrashape" / "worker_main.py",
     ROOT / "worker" / "pixal3d" / "worker_main.py",
@@ -32,13 +36,23 @@ def doctor() -> dict[str, object]:
     missing_paths = [str(path.relative_to(ROOT)) for path in REQUIRED_PATHS if not path.is_file()]
     source = NODE_FILE.read_text(encoding="utf-8") if NODE_FILE.is_file() else ""
     missing_nodes = [node_id for node_id in PUBLIC_NODE_IDS if f'"{node_id}"' not in source]
+    declared_nodes = []
+    node_list = ROOT / "node_list.json"
+    if node_list.is_file():
+        declared_nodes = json.loads(node_list.read_text(encoding="utf-8"))
+    node_list_matches = declared_nodes == list(PUBLIC_NODE_IDS)
     return {
         "schema": 1,
         "pack": "3d",
-        "status": "ok" if not missing_paths and not missing_nodes else "error",
+        "status": (
+            "ok"
+            if not missing_paths and not missing_nodes and node_list_matches
+            else "error"
+        ),
         "public_node_ids": list(PUBLIC_NODE_IDS),
         "missing_paths": missing_paths,
         "missing_node_ids": missing_nodes,
+        "node_list_matches": node_list_matches,
         "network_used": False,
         "writes": [],
     }

@@ -1,0 +1,2 @@
+# Runtime dependencies are owned by the pinned sibling custom nodes installed
+# by install.py. Optional isolated workers retain separate environments.

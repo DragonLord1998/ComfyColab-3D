@@ -1706,7 +1706,10 @@ class ThreeDNodePackTests(unittest.TestCase):
     def test_pinned_ultrashape_defaults_and_cache_root(self):
         load_package()
         nodes = importlib.import_module("comfycolab_3d_test.nodes")
-        self.assertEqual(nodes._cache_root(), Path("/content/.comfycolab/cache/3d"))
+        self.assertEqual(
+            nodes._cache_root(),
+            PACKAGE_DIR.parents[1] / ".cache" / "comfycolab" / "3d",
+        )
         self.assertEqual(nodes.DEFAULT_ULTRASHAPE_SOURCE, "/content/UltraShape-1.0")
         self.assertTrue(nodes.DEFAULT_ULTRASHAPE_PYTHON.endswith("/.ce/.pixi/envs/trellis2-nodes/bin/python"))
         self.assertEqual(nodes.ULTRASHAPE_SOURCE_REF, "5e8dcef05df101ab00ab6cd5fdd0ed0c74fbca66")

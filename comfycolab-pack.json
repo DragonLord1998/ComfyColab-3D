@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "id": "3d",
-  "version": "0.2.0-dev.0",
+  "version": "0.3.0-dev.1",
   "display_name": "ComfyColab 3D",
   "compatibility": {
     "core_manifest_api": 1,
@@ -252,6 +252,13 @@
       "id": "trellis2-multiview-weight-cache-v1",
       "path": "patches/trellis2-multiview-weight-cache.json",
       "sha256": "f1517c0f533856f22530b9ce1c21d3b2cdec78fd5cb7237b497ee1ad52b74756",
+      "target": "comfyui-trellis2",
+      "source_ref": "9b878516f2dc2fd873f4f6cceadba403dd12d83e"
+    },
+    {
+      "id": "trellis2-current-comfy-runtime-v1",
+      "path": "patches/trellis2-current-comfy-runtime.json",
+      "sha256": "a82eab7f07631f7c6f5650d19717d88411d0f7cfec5efab448658f4167e2f09d",
       "target": "comfyui-trellis2",
       "source_ref": "9b878516f2dc2fd873f4f6cceadba403dd12d83e"
     },
